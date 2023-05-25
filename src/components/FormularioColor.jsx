@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import ContenedorColor from "./ContenedorColor";
+import { v4 as uuid } from "uuid";
 
 const FormularioColor = () => {
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState({});
+
+  const unique_id = uuid();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(color);
   };
 
   return (
@@ -19,10 +23,15 @@ const FormularioColor = () => {
         <Form.Control
           type="color"
           className="d-inline-block"
-          onChange={(e) => setColor(e.target.value)}
+          onChange={(e) =>
+            setColor({
+              id: unique_id,
+              value: e.target.value,
+            })
+          }
         />
       </Form.Group>
-      <ContenedorColor color={color}></ContenedorColor>
+      <ContenedorColor color={color.value || "#000000"}></ContenedorColor>
       <Button variant="primary" type="submit">
         Guardar color
       </Button>
