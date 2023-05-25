@@ -1,4 +1,5 @@
 import { Form, Button } from "react-bootstrap";
+import ContenedorColor from "./ContenedorColor";
 
 const FormularioColor = () => {
   return (
@@ -7,15 +8,7 @@ const FormularioColor = () => {
         <Form.Label className="mx-3">Elegir color</Form.Label>
         <Form.Control type="color" className="d-inline-block" />
       </Form.Group>
-      <div
-        className="mx-auto mb-3"
-        style={{
-          backgroundColor: "black",
-          padding: "5rem",
-          width: "25%",
-          height: "25%",
-        }}
-      ></div>
+      <ContenedorColor color={"yellow"}></ContenedorColor>
       <Button variant="primary" type="submit">
         Guardar color
       </Button>
