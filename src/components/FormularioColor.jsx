@@ -3,14 +3,14 @@ import { Form, Button } from "react-bootstrap";
 import ContenedorColor from "./ContenedorColor";
 import { v4 as uuid } from "uuid";
 
-const FormularioColor = () => {
+const FormularioColor = ({ guardarColor }) => {
   const unique_id = uuid();
 
   const [color, setColor] = useState({ id: unique_id, value: "#000000" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("colores", JSON.stringify(color));
+    guardarColor(color);
   };
 
   return (
