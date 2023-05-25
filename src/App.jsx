@@ -14,6 +14,10 @@ function App() {
     setArrayColores([...arrayColores, color]);
   };
 
+  const borrarColor = (colorId) => {
+    setArrayColores(arrayColores.filter((color) => color.id !== colorId));
+  };
+
   useEffect(() => {
     localStorage.setItem("colores", JSON.stringify(arrayColores));
   }, [arrayColores]);
@@ -31,7 +35,12 @@ function App() {
         ) : (
           <Row xs={1} md={2} lg={3} xl={4}>
             {arrayColores.map((color) => (
-              <CardColor key={color.id} color={color.value}></CardColor>
+              <CardColor
+                key={color.id}
+                color={color.value}
+                id={color.id}
+                borrarColor={borrarColor}
+              ></CardColor>
             ))}
           </Row>
         )}
