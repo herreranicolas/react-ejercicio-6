@@ -4,13 +4,13 @@ import ContenedorColor from "./ContenedorColor";
 import { v4 as uuid } from "uuid";
 
 const FormularioColor = () => {
-  const [color, setColor] = useState({});
-
   const unique_id = uuid();
+
+  const [color, setColor] = useState({ id: unique_id, value: "#000000" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(color);
+    localStorage.setItem("colores", JSON.stringify(color));
   };
 
   return (
