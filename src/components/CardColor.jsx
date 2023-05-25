@@ -1,15 +1,15 @@
 import { Card, Button, Col } from "react-bootstrap";
 import ContenedorColor from "./ContenedorColor";
 
-const CardColor = () => {
+const CardColor = ({ color }) => {
   return (
-    <Col className="d-flex align-items-center justify-content-center">
+    <Col className="d-flex align-items-center justify-content-center mb-3">
       <Card style={{ width: "18rem" }}>
         <Card.Header>
-          <Card.Title>Nombre color</Card.Title>
+          <Card.Title>Color: {color}</Card.Title>
         </Card.Header>
         <Card.Body>
-          <ContenedorColor></ContenedorColor>
+          <ContenedorColor color={color}></ContenedorColor>
         </Card.Body>
         <Card.Footer className="text-end">
           <Button variant="danger">Borrar color</Button>
